@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+
+  overflow-x: hidden;
+}
+.home__container {
+  width: 100%;
+}
+
+.home__categories {
+  width: fit-content;
+  margin: auto;
+  height: 40px;
+  /* background-image: linear-gradient(
+    to bottom,
+    rgb(252, 231, 235),
+    rgb(255, 255, 255)
+  ); */
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 247, 228),
+    rgb(255, 255, 255)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dotted black;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+.home__categories > button {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-radius: 0%;
+  height: 80%;
+  background: transparent;
+  border-right: 1px dotted black;
+  border-left: 1px dotted black;
+  color: black;
+}
+
+.home__title {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  width: 70vw;
+  margin: auto;
+  margin-top: 30px;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  font-size: clamp(15px, calc(10px + 1vw), 40px);
+
+  justify-content: center;
+  align-items: center;
+}
+.home__title::before {
+  background: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+  background: linear-gradient(69deg, #190192, #5258b6, #a7a7ff);
+  background: linear-gradient(69deg, #b34100, #df5f15, #ff9253);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  position: absolute;
+  display: block;
+
+  transform: skewX(-15deg);
+  border-radius: 10px;
+  z-index: -1;
+}
+.home__title > h1 {
+  display: inline-flex;
+  justify-content: center;
+  margin-left: 10px;
+  font-family: "Lobster";
+}
+.home__title > p {
+  font-family: "Comic Sans MS";
+}
+.home__row {
+  display: flex;
+  width: 100%;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  flex-wrap: wrap;
+}
+.home__row > .product {
+  flex: 1 1 22%;
+}
+
+.home__image {
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  z-index: -1;
+  margin-bottom: -150px;
+  /*  background-image: radial-gradient(
+    circle at left,
+    rgb(255, 255, 255),
+    rgb(255, 246, 228)
+  ); */
+
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.home__categoryTitle {
+  font-family: "Lobster";
+  text-transform: capitalize;
+  text-align: start;
+  border-bottom: 1px dashed black;
+  width: 200px;
+  margin-left: 40px;
+  margin-top: 40px;
+}

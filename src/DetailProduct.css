@@ -1,0 +1,11 @@
+.detailProduct {
+  height: 50vh;
+  width: 50vh;
+  background-color: red;
+  z-index: 1000000;
+}
+
+div > button {
+  z-index: 100;
+  pointer-events: auto;
+}
