@@ -9,12 +9,14 @@ import { auth, db } from "./firebase"
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
 import Admin from "./Admin";
-
+import Footer from "./Footer";
 
 function App() {
   const [{basket, user}, dispatch] = useStateValue()
   
-
+  useEffect(() => {
+    document.title = "Clothes & Clothes"
+ }, []);
 
     useEffect(()=>{
           db
@@ -76,10 +78,11 @@ function App() {
           <Route path="/">
             <Header/>
             <Home/>
+            <Footer/>
           </Route>
             
         </Switch>
-        
+       
       </div>
     </Router>
   );

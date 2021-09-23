@@ -4,8 +4,10 @@ import "./Product.css"
 import { useStateValue } from './StateProvider'
 import DetailProduct from './DetailProduct'
 
-function Product({id, title, description, image, price, rating, ratingCount, available}) {
 
+
+function Product({id, title, description, image, price, rating, ratingCount, available}) {
+    
     const [{basket, user, products}, dispatch] = useStateValue();
 
     //console.log("this is the basket ", basket)
@@ -53,9 +55,16 @@ function Product({id, title, description, image, price, rating, ratingCount, ava
         
     const [detailProductIsOpen, setDetailProductIsOpen] = useState(false);
    
+    const prodId = value =>
+    {
+        value = detailProductIsOpen
+    }
+   
     return (
         
-        <div className="product" onMouseLeave={()=>{setDetailProductIsOpen(false)}}> 
+        <div className="product" 
+        id = {detailProductIsOpen}
+        onMouseLeave={()=>{setDetailProductIsOpen(false)}}> 
             <div class = "product__openDescription"
             
             onClick={()=>{setDetailProductIsOpen(!detailProductIsOpen)}}></div>

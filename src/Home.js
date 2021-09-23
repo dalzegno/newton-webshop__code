@@ -4,7 +4,7 @@ import "./Home.css";
 import Product from './Product';
 import { useStateValue } from './StateProvider';
 
-function Home() {
+function Home(){
     const [products, setProducts] = useState([]);
    
     useEffect(() => {
@@ -14,17 +14,12 @@ function Home() {
                 
                 data: doc.data(),
             })))
-            
         ))
-        console.log("PRODUCTS", products)
         
     }, [])
-    
 
     const[category, setCategory] = useState();
-    useEffect(() => {
-        console.log("hej",category)
-    }, [])
+   
    
     
 
@@ -41,7 +36,7 @@ function Home() {
                    {/*  <p>Ye olde shoppe for thy Clothes</p> */}
                 </div>
                 <div className ="home__categories">
-                    <button onClick={()=>setCategory("")}>Featured</button>
+                    <button onClick={()=>setCategory("")}>Home</button>
                     <button onClick={()=>setCategory("jackets")}>Jackets</button>
                     <button onClick={()=>setCategory("tops")} >Tops</button>
                     <button onClick={()=>setCategory("trousers")}>Trousers</button>
@@ -83,7 +78,23 @@ function Home() {
                 </div>
                 <div className="home__row">
               {
-
+                  category? ""
+                  :
+                  <div className="home__aboutus">
+                      <h1>About us</h1>
+                      <p>
+                      Welcome to Clothes & Clothes, your number one source for all things Clothes. 
+                      We're dedicated to providing you the very best of wearable garments, with an emphasis on clothes, clothes, clothes.
+                      Founded in 2021 by Clothy McClotherson, Clothes & Clothes has come a long way from its beginnings in Wardrobe City. 
+                      When Clothy first started out, their passion for outfits drove them to start their own business.
+                       We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.
+                
+                <h4><small>Sincerely,</small><strong> Clothy McClotherson CEO</strong></h4>
+                <img alt="Signature" src="https://www.mylivesignature.com/guest_signatures/298/6096C30B1719A743F364D294BB910ECE.png?614b683fac5ac"/>
+                  
+                      </p>
+                    
+                  </div>
               }
                 </div>
                 <div className="home__row">

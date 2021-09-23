@@ -69,7 +69,7 @@
 }
 
 .product__description {
-  background-color: rgba(219, 219, 219, 0.1);
+  background-color: rgba(113, 137, 163, 0.205);
   text-align: center;
   padding: 3px;
   border-radius: 3px;
@@ -77,6 +77,16 @@
   font-family: "Monospace";
   font-weight: lighter;
   letter-spacing: 0.5px;
-  color: black;
+  color: rgb(75, 64, 64);
   max-width: 500px;
+  border-top: 6px double black;
+  border-bottom: 6px double black;
+  border-right: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+}
+#true {
+  transform: scale(2);
+}
+#false {
+  transform: scale(1);
 }

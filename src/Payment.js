@@ -1,13 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import CheckoutProduct from './CheckoutProduct';
+import { db } from './firebase';
 import "./Payment.css"
+import { getBasketTotal } from './reducer';
 import { useStateValue } from './StateProvider'
 
 
 function Payment() {
-const [{basket, user}] = useStateValue();
+const [{basket, user}, dispatch] = useStateValue();
+const[deliveryOption, setDeliveryOption] = useState("");
+const history = useHistory();
 
+const placeOrder = event => {
+    alert("Your order has been placed!")
+    db.collection('users').doc(user.uid).collection("order")
+    .doc("Date.now").set({
+        basket:basket
+    })
+    dispatch({
+        type: "CLEAR_BASKET",
+        basket: basket
+    })
+    history.push("/")
+
+}
     return (
         <div className="payment">
             <div className="payment__container">
@@ -49,7 +66,45 @@ const [{basket, user}] = useStateValue();
                     </div>
                     <div className="payment__details">
                         
+                        <input placeholder="Card number" type="number"/>
+                        <input placeholder="MM / YY" type="number"/>
+                       <input placeholder="CVC" type="number"/>
+
                     </div>
+
+                    
+                </div>
+                
+                <div className="payment__delivery">
+                        <div>
+                            <h3>Delivery method</h3>
+                        </div>
+                        <div className="deliveryOption">
+                                <input onClick={() => setDeliveryOption(0)}
+                                checked={deliveryOption? "" : true}type="radio" name="deliveryOption"/>
+                                <h5>SEK<strong> 0 </strong></h5>
+                                <p>&nbsp;Standard delivery (3-5 days)</p>
+                            </div>
+                        <div classname="payment__deliveryOptions">
+                            <div className="deliveryOption">
+                                <input onClick={() => setDeliveryOption(100)}
+                                type="radio" name="deliveryOption"/>
+                                <h5>SEK<strong> 100 </strong></h5>
+                                <p> &nbsp; Same day delivery</p>
+                            </div>
+                            
+                            <div className="deliveryOption" >
+                                <input  onClick={() => setDeliveryOption(9000)}
+                                type="radio" name="deliveryOption"/>
+                                <h5>SEK<strong> 9000 </strong></h5>
+                                <p>&nbsp; Instant delivery (5 min)</p>
+                            </div>
+                         </div>
+                </div>
+                <div className="payment__pay">
+                    <h2>Order total: <small>SEK</small> {getBasketTotal(basket) + deliveryOption}</h2>
+                    <h5>(varav moms 25%: <small>SEK</small> {(getBasketTotal(basket) *0.25)})</h5>
+                    <button onClick={placeOrder}>Buy now</button>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ export const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => parseFloat(item.price) + amount, 0);
 
 const reducer = (state, action) => {
-    console.log(action);
+    console.log(action.type);
     switch(action.type){
         case "ADD_TO_BASKET":
             return {
@@ -34,6 +34,12 @@ const reducer = (state, action) => {
                 console.warn(`Can't remove product (id: ${action.id} as its not in the basket!)`)
             }
             return { ...state, basket: newBasket};
+
+        case "CLEAR_BASKET":
+            const emptyBasket = [];
+            return{
+                ...state, basket: emptyBasket
+            };
 
         case "SET_USER":
             return{
