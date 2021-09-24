@@ -16,6 +16,14 @@
 .admin__addProduct > form > h5 {
   margin-top: 10px;
 }
+.admin__addProduct > form > select {
+  text-transform: capitalize;
+  background: white;
+  border: 1px solid grey;
+  width: 100%;
+  padding: 3px;
+}
+
 .admin__addProduct > form > button {
   background: #f0c14b;
   border: 1px solid;

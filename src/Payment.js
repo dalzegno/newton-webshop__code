@@ -68,7 +68,7 @@ const placeOrder = event => {
                         
                         <input placeholder="Card number" type="number"/>
                         <input placeholder="MM / YY" type="number"/>
-                       <input placeholder="CVC" type="number"/>
+                        <input placeholder="CVC" type="number"/>
 
                     </div>
 
@@ -103,7 +103,7 @@ const placeOrder = event => {
                 </div>
                 <div className="payment__pay">
                     <h2>Order total: <small>SEK</small> {getBasketTotal(basket) + deliveryOption}</h2>
-                    <h5>(varav moms 25%: <small>SEK</small> {(getBasketTotal(basket) *0.25)})</h5>
+                    <h5>(VAT 25%: <small>SEK</small> {(getBasketTotal(basket) *0.25)})</h5>
                     <button onClick={placeOrder}>Buy now</button>
                 </div>
             </div>

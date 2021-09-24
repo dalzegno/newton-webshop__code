@@ -10,7 +10,6 @@ function Product({id, title, description, image, price, rating, ratingCount, ava
     
     const [{basket, user, products}, dispatch] = useStateValue();
 
-    //console.log("this is the basket ", basket)
     console.log("PRPRP", products.data)
             
     const addToBasket = () => {
@@ -35,8 +34,6 @@ function Product({id, title, description, image, price, rating, ratingCount, ava
             
         })
         
-        /* console.log("PROODD",
-            products) */
     }
         let availableString = "";
         let availableNumber = "";
@@ -55,10 +52,7 @@ function Product({id, title, description, image, price, rating, ratingCount, ava
         
     const [detailProductIsOpen, setDetailProductIsOpen] = useState(false);
    
-    const prodId = value =>
-    {
-        value = detailProductIsOpen
-    }
+   
    
     return (
         

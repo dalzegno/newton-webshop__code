@@ -8,7 +8,6 @@
   max-width: 1500px;
   min-height: 100vh;
   overflow-x: hidden;
-
   padding-bottom: 50px;
 }
 .home__container {
@@ -26,7 +25,7 @@
   ); */
   background: linear-gradient(
     to bottom,
-    rgb(255, 247, 228),
+    rgba(255, 247, 228, 0.658),
     rgb(255, 255, 255)
   );
   display: flex;
@@ -47,6 +46,8 @@
   border-right: 1px dotted black;
   border-left: 1px dotted black;
   color: black;
+
+  font-family: "Lobster";
 }
 
 .home__title {
@@ -94,11 +95,14 @@
   border-radius: 10px;
   z-index: -1;
 }
+@import url("https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caramel&display=swap");
 .home__title > h1 {
   display: inline-flex;
   justify-content: center;
   margin-left: 10px;
   font-family: "Lobster";
+  color: rgb(46, 46, 46);
 }
 .home__title > p {
   font-family: "Comic Sans MS";

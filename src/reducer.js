@@ -1,4 +1,3 @@
-import { db } from "./firebase";
 
 export const initialState = {
     basket: [],

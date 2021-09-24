@@ -32,20 +32,20 @@ function Admin() {
             price: price,
             available: quantity
         }).then(
-            setCategory(""),
             setTitle(""),
             setDescription(""),
-            setPrice(),
+            setPrice(''),
             setImageLink(""),
             setQuantity(""),
         ).then(alert("Product added!"))
     }
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('jackets');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [imageLink, setImageLink] = useState('');
     const [quantity, setQuantity] = useState('');
+
 
     const [products, setProducts] = useState([]);  
     useEffect(() => {
@@ -58,11 +58,9 @@ function Admin() {
             })))
             
         ))
-        console.log("PRODUCTS", products)
         
     }, [])
     
-    console.log(products)
  /*    const [addProduct, setAddProduct] = useState();
     useEffect(() => {
         
@@ -96,9 +94,14 @@ function Admin() {
                 <form onSubmit={addProductToDb}>
                     <h1>Add product</h1>
                     <h5>Category</h5>
-                    <input type="text" value={category}
+                    <select
                     onChange={e => setCategory(e.target.value)}
-                     required/>
+                     required>
+                         <option value="jackets">Jackets</option>
+                         <option value="tops">Tops</option>
+                         <option value="trousers">Trousers</option>
+                         <option value="shoes">Shoes</option>
+                     </select>
 
                     <h5>Title</h5>
                     <input value={title}
